@@ -47,7 +47,10 @@ public class Autoplay {
                     "boardgame.Client", "pentago_swap.RandomPentagoPlayer");
             client2_pb.redirectOutput(ProcessBuilder.Redirect.INHERIT);
 
+            
+            int countwin=0;
             for (int i = 0; i < n_games; i++) {
+            	
                 System.out.println("Game " + i);
 
                 try {
