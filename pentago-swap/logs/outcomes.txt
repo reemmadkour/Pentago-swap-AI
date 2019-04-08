@@ -1,1 +1,9 @@
 1,RandomPlayer,Human,1,Human,8,game00001.log,
+3,RandomPlayer,260726480,1,260726480,18,game00003.log,
+4,260726480,RandomPlayer,1,RandomPlayer,1,game00004.log,ILLEGAL MOVE: Player 1, Move: (2, 3), Swap: (TL, TR)
+5,RandomPlayer,260726480,0,RandomPlayer,1,game00005.log,ILLEGAL MOVE: Player 0, Move: (2, 3), Swap: (TL, TR)
+6,RandomPlayer,260726480,0,RandomPlayer,1,game00006.log,ILLEGAL MOVE: Player 0, Move: (2, 3), Swap: (TL, TR)
+7,RandomPlayer,260726480,0,RandomPlayer,0,game00007.log,TIMEOUT
+8,260726480,RandomPlayer,1,RandomPlayer,0,game00008.log,TIMEOUT
+9,260726480,RandomPlayer,1,RandomPlayer,0,game00009.log,TIMEOUT
+10,260726480,RandomPlayer,1,RandomPlayer,0,game00010.log,TIMEOUT
