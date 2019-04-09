@@ -53,23 +53,28 @@ public class moveandscore{
         PentagoMove c3= new PentagoMove(4,1,Quadrant.TL,Quadrant.TR,me);
         PentagoMove c4= new PentagoMove(4,4,Quadrant.TL,Quadrant.TR,me);
         PentagoMove c5= new PentagoMove(3,2,Quadrant.TL,Quadrant.TR,me);
-        PentagoMove c6= new PentagoMove(3,2,Quadrant.TL,Quadrant.TR,me);
+        PentagoMove c6= new PentagoMove(2,3,Quadrant.TL,Quadrant.TR,me);
         PentagoMove c7= new PentagoMove(2,2,Quadrant.TL,Quadrant.TR,me);
         PentagoMove c8= new PentagoMove(3,3,Quadrant.TL,Quadrant.TR,me);
         PentagoMove c9= new PentagoMove(0,0,Quadrant.TL,Quadrant.TR,me);
         PentagoMove c10= new PentagoMove(5,5,Quadrant.TL,Quadrant.TR,me);
-        
+      //  PentagoMove c11= new PentagoMove(0,2,Quadrant.TL,Quadrant.TR,me);
+        //PentagoMove c12= new PentagoMove(0,3,Quadrant.TL,Quadrant.TR,me);
+       
         if(boardState.isLegal(c1)) {return c1;}
         else if (boardState.isLegal(c2)) {return c2;}
         else if (boardState.isLegal(c3)) {return c3;}
         else if (boardState.isLegal(c4)) {return c4;}
-        else if(boardState.getTurnNumber()<9) { 
+        else if(boardState.getTurnNumber()<8) { 
+        	
         	if(boardState.isLegal(c5)) {return c5;}
         	else if (boardState.isLegal(c6)) {return c6;}
         	else if (boardState.isLegal(c7)) {return c7;}
         	else if (boardState.isLegal(c8)) {return c8;}
         	else if (boardState.isLegal(c9)) {return c9;}
         	else if (boardState.isLegal(c10)) {return c10;}
+        	//else if (boardState.isLegal(c11)) {return c11;}
+        	//else if (boardState.isLegal(c12)) {return c12;}
         	
         	else return boardState.getRandomMove();}
         else {
