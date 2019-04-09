@@ -7,6 +7,7 @@ import boardgame.Move;
 
 import pentago_swap.PentagoPlayer;
 import pentago_swap.PentagoBoardState;
+import pentago_swap.PentagoBoardState.Piece;
 import pentago_swap.PentagoBoardState.Quadrant;
 import pentago_swap.PentagoMove;
 
@@ -41,6 +42,83 @@ public class moveandscore{
      * object contains the current state of the game, which your agent must use to
      * make decisions.
      */
+
+public int evalMove(PentagoBoardState boardState, PentagoMove v,int me) {
+	Piece mycolor= null;
+	
+	if (me==0) {mycolor=Piece.WHITE;}
+	else {mycolor=Piece.BLACK;}
+	
+	PentagoBoardState newBoard= (PentagoBoardState) boardState.clone();
+ 	newBoard.processMove(v);
+ 	int totalscore=0;
+	for(int x=0;x<6;x++) {
+		
+		int rowscore=0;
+		int colscore=0;
+		
+		for(int y=0;y<6;y++) {
+			if (boardState.getPieceAt(x, y)!=Piece.EMPTY) {
+				if(boardState.getPieceAt(x, y)==mycolor) {
+					rowscore=rowscore+1;
+				}
+				else {
+					
+					rowscore=rowscore-2;
+					
+				}
+				
+				if(boardState.getPieceAt(y, x)==mycolor) {
+					colscore=colscore+1;
+				}
+				else {
+					
+					colscore=colscore-2;
+					
+				}
+				
+			}
+		}
+		
+		totalscore=totalscore+rowscore+colscore;
+	}
+ 	
+	return totalscore;
+	
+	
+	/*int xmove=v.getMoveCoord().getX();
+	int ymove=v.getMoveCoord().getY();
+	int score=0;
+	
+	for(int x=0;x<6;x++) {
+		for(int y=0;y<6;y++) {
+			if (boardState.getPieceAt(x, y)!=Piece.EMPTY) {
+				if(boardState.getPieceAt(x, y)==mycolor) {
+					if(x==xmove) {score=score+1;}
+					if(y==ymove) {score=score+1;}
+					if(Math.abs(x-xmove)==Math.abs(y-ymove)) {score=score+1;}
+				}
+				else {
+					
+					if(x==xmove) {score=score-2;}
+					if(y==ymove) {score=score-2;}
+					if(Math.abs(x-xmove)==Math.abs(y-ymove)) {score=score-2;}
+					
+				}
+				
+				
+			}
+				
+			}
+		}
+	
+	return score;*/
+	}
+	
+
+
+
+
     public Move chooseMove(PentagoBoardState boardState) {
         // You probably will make separate functions in MyTools.
         // For example, maybe you'll need to load some pre-processed best opening
@@ -52,31 +130,79 @@ public class moveandscore{
         PentagoMove c2= new PentagoMove(1,4,Quadrant.TL,Quadrant.TR,me);
         PentagoMove c3= new PentagoMove(4,1,Quadrant.TL,Quadrant.TR,me);
         PentagoMove c4= new PentagoMove(4,4,Quadrant.TL,Quadrant.TR,me);
+        
         PentagoMove c5= new PentagoMove(3,2,Quadrant.TL,Quadrant.TR,me);
         PentagoMove c6= new PentagoMove(2,3,Quadrant.TL,Quadrant.TR,me);
         PentagoMove c7= new PentagoMove(2,2,Quadrant.TL,Quadrant.TR,me);
         PentagoMove c8= new PentagoMove(3,3,Quadrant.TL,Quadrant.TR,me);
+       
         PentagoMove c9= new PentagoMove(0,0,Quadrant.TL,Quadrant.TR,me);
         PentagoMove c10= new PentagoMove(5,5,Quadrant.TL,Quadrant.TR,me);
-      //  PentagoMove c11= new PentagoMove(0,2,Quadrant.TL,Quadrant.TR,me);
-        //PentagoMove c12= new PentagoMove(0,3,Quadrant.TL,Quadrant.TR,me);
-       
+        PentagoMove c11= new PentagoMove(0,2,Quadrant.TL,Quadrant.TR,me);
+        PentagoMove c12= new PentagoMove(0,3,Quadrant.TL,Quadrant.TR,me);
+        
+        PentagoMove c13= new PentagoMove(0,0,Quadrant.TL,Quadrant.TR,me);
+        PentagoMove c14= new PentagoMove(2,0,Quadrant.TL,Quadrant.TR,me);
+        PentagoMove c15= new PentagoMove(3,0,Quadrant.TL,Quadrant.TR,me);
+        PentagoMove c16= new PentagoMove(5,0,Quadrant.TL,Quadrant.TR,me);
+        PentagoMove c17= new PentagoMove(5,3,Quadrant.TL,Quadrant.TR,me);
+        PentagoMove c18= new PentagoMove(5,0,Quadrant.TL,Quadrant.TR,me);
+        PentagoMove c19= new PentagoMove(0,5,Quadrant.TL,Quadrant.TR,me);
+        
+        
+        
+        
         if(boardState.isLegal(c1)) {return c1;}
         else if (boardState.isLegal(c2)) {return c2;}
         else if (boardState.isLegal(c3)) {return c3;}
         else if (boardState.isLegal(c4)) {return c4;}
         else if(boardState.getTurnNumber()<8) { 
         	
-        	if(boardState.isLegal(c5)) {return c5;}
-        	else if (boardState.isLegal(c6)) {return c6;}
-        	else if (boardState.isLegal(c7)) {return c7;}
-        	else if (boardState.isLegal(c8)) {return c8;}
-        	else if (boardState.isLegal(c9)) {return c9;}
-        	else if (boardState.isLegal(c10)) {return c10;}
-        	//else if (boardState.isLegal(c11)) {return c11;}
-        	//else if (boardState.isLegal(c12)) {return c12;}
+        	//if(boardState.isLegal(c5)) {return c5;}
+        	//else if (boardState.isLegal(c6)) {return c6;}
+        	//else if (boardState.isLegal(c7)) {return c7;}
+        	//else if (boardState.isLegal(c8)) {return c8;}
         	
-        	else return boardState.getRandomMove();}
+        	//else if (boardState.isLegal(c9)) {return c9;}
+        	
+        	
+        	ArrayList<PentagoMove> legalmoves = boardState.getAllLegalMoves();
+        	int BestScore=Integer.MIN_VALUE;
+        	
+        	PentagoMove initmove=legalmoves.get(0);
+         	moveandscore bestab = new moveandscore();
+            bestab.setMove(initmove);
+        
+        	
+        	for (PentagoMove v: legalmoves) {
+        		int score=evalMove(boardState,v,me);
+        		if (score>BestScore) {
+        			bestab.setMove(v);
+        			BestScore=score;}
+        			//PentagoBoardState newBoard= (PentagoBoardState) boardState.clone();
+                 	
+                //	newBoard.processMove(v);
+        			
+        			
+        			
+        		}
+        //	}
+        	return bestab.move;  }
+        /*	else if (boardState.isLegal(c10)) {return c10;}
+        	else if (boardState.isLegal(c11)) {return c11;}
+        	else if (boardState.isLegal(c12)) {return c12;}
+        	
+        	else if (boardState.isLegal(c13)) {return c13;}
+        	else if (boardState.isLegal(c14)) {return c14;}
+        	else if (boardState.isLegal(c15)) {return c15;}
+        	else if (boardState.isLegal(c16)) {return c16;}
+        	else if (boardState.isLegal(c17)) {return c17;}
+        	else if (boardState.isLegal(c18)) {return c18;}
+        	else if (boardState.isLegal(c19)) {return c19;}*/
+        	
+        	
+        	
+        	//else return boardState.getRandomMove();}
         else {
         moveandscore ans= minimax(boardState,me,me,Integer.MIN_VALUE,Integer.MAX_VALUE);
         System.out.println("gotominin");
