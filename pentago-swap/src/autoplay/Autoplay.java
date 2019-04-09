@@ -42,15 +42,15 @@ public class Autoplay {
             ProcessBuilder client1_pb = new ProcessBuilder("java", "-cp", "bin", "-Xms520m", "-Xmx520m",
                     "boardgame.Client", "student_player.StudentPlayer");
             client1_pb.redirectOutput(ProcessBuilder.Redirect.INHERIT);
-
+/*
             ProcessBuilder client2_pb = new ProcessBuilder("java", "-cp", "bin", "-Xms520m", "-Xmx520m",
                     "boardgame.Client", "lucy_player.StudentPlayer");
             client2_pb.redirectOutput(ProcessBuilder.Redirect.INHERIT);
-            
-/*            
-            ProcessBuilder client2_pb = new ProcessBuilder("java", "-cp", "bin", "-Xms520m", "-Xmx520m",
+            */
+           
+           ProcessBuilder client2_pb = new ProcessBuilder("java", "-cp", "bin", "-Xms520m", "-Xmx520m",
                     "boardgame.Client", "pentago_swap.RandomPentagoPlayer");
-            client2_pb.redirectOutput(ProcessBuilder.Redirect.INHERIT);*/
+            client2_pb.redirectOutput(ProcessBuilder.Redirect.INHERIT);
 
 
             

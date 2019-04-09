@@ -83,6 +83,102 @@ public int evalMove(PentagoBoardState boardState, PentagoMove v,int me) {
 		totalscore=totalscore+rowscore+colscore;
 	}
  	
+	int[][] diag1 = {{0,0},{1,1},{2,2},{3,3},{4,4},{5,5}};
+	int[][] diag2 = {{1,0},{2,1},{3,2},{4,3},{5,4}};
+	int[][] diag3 = {{0,1},{1,2},{2,3},{3,4},{4,5}};
+	int[][] diag4 = {{0,5},{1,4},{2,3},{3,2},{4,1},{5,0}};
+	int[][] diag5 = {{0,4},{1,3},{2,2},{3,1},{4,0}};
+	int[][] diag6 = {{1,5},{2,4},{3,3},{4,2},{5,1}};
+	int done=0;
+	int dtwo=0;
+	int dthree=0;
+	int dfour=0;
+	int dfive=0;
+	int dsix=0;
+	for(int i=0;i<6;i++) {
+		if (boardState.getPieceAt(diag1[i][0], diag1[i][1])!=Piece.EMPTY) {
+			if(boardState.getPieceAt(diag1[i][0], diag1[i][1])==mycolor) {
+				done=done+1;
+			}
+			else {
+				
+				done=done-2;
+				
+			}
+	}
+	}
+	
+	for(int i=0;i<6;i++) {
+		if (boardState.getPieceAt(diag4[i][0], diag4[i][1])!=Piece.EMPTY) {
+			if(boardState.getPieceAt(diag4[i][0], diag4[i][1])==mycolor) {
+				dfour=dfour+1;
+			}
+			else {
+				
+				dfour=dfour-2;
+				
+			}
+	}
+	}
+	
+	
+	
+	for(int i=0;i<5;i++) {
+		if (boardState.getPieceAt(diag2[i][0], diag2[i][1])!=Piece.EMPTY) {
+			if(boardState.getPieceAt(diag2[i][0], diag2[i][1])==mycolor) {
+				dtwo=dtwo+1;
+			}
+			else {
+				
+				dtwo=dtwo-2;
+				
+			}
+	}
+	}
+	
+	
+	
+	for(int i=0;i<5;i++) {
+		if (boardState.getPieceAt(diag3[i][0], diag3[i][1])!=Piece.EMPTY) {
+			if(boardState.getPieceAt(diag3[i][0], diag3[i][1])==mycolor) {
+				dthree=dthree+1;
+			}
+			else {
+				
+				dthree=dthree-2;
+				
+			}
+	}
+	}
+	
+	for(int i=0;i<5;i++) {
+		if (boardState.getPieceAt(diag5[i][0], diag5[i][1])!=Piece.EMPTY) {
+			if(boardState.getPieceAt(diag5[i][0], diag5[i][1])==mycolor) {
+				dfive=dfive+1;
+			}
+			else {
+				
+				dfive=dfive-2;
+				
+			}
+	}
+	}
+	
+	
+	for(int i=0;i<5;i++) {
+		if (boardState.getPieceAt(diag6[i][0], diag6[i][1])!=Piece.EMPTY) {
+			if(boardState.getPieceAt(diag6[i][0], diag6[i][1])==mycolor) {
+				dsix=dsix+1;
+			}
+			else {
+				
+				dsix=dsix-2;
+				
+			}
+	}
+	}
+	
+	totalscore= totalscore+done+dtwo+dthree+dfour+dfive+dsix;
 	return totalscore;
 	
 	
@@ -153,12 +249,12 @@ public int evalMove(PentagoBoardState boardState, PentagoMove v,int me) {
         
         
         if(boardState.isLegal(c1)) {return c1;}
-        else if (boardState.isLegal(c2)) {return c2;}
+       // else if (boardState.isLegal(c2)) {return c2;}
         else if (boardState.isLegal(c3)) {return c3;}
-        else if (boardState.isLegal(c4)) {return c4;}
-        else if(boardState.getTurnNumber()<8) { 
+        //else if (boardState.isLegal(c4)) {return c4;}
+        else if(boardState.getTurnNumber()<9) { 
         	
-        	//if(boardState.isLegal(c5)) {return c5;}
+        	if(boardState.isLegal(c5)) {return c5;}
         	//else if (boardState.isLegal(c6)) {return c6;}
         	//else if (boardState.isLegal(c7)) {return c7;}
         	//else if (boardState.isLegal(c8)) {return c8;}
