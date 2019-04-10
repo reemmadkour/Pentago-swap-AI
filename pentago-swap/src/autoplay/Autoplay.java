@@ -43,10 +43,15 @@ public class Autoplay {
                     "boardgame.Client", "student_player.StudentPlayer");
             client1_pb.redirectOutput(ProcessBuilder.Redirect.INHERIT);
 /*
-            ProcessBuilder client2_pb = new ProcessBuilder("java", "-cp", "bin", "-Xms520m", "-Xmx520m",
+          ProcessBuilder client2_pb = new ProcessBuilder("java", "-cp", "bin", "-Xms520m", "-Xmx520m",
                     "boardgame.Client", "lucy_player.StudentPlayer");
-            client2_pb.redirectOutput(ProcessBuilder.Redirect.INHERIT);
-            */
+            client2_pb.redirectOutput(ProcessBuilder.Redirect.INHERIT);*/
+            
+          
+     /*       ProcessBuilder client2_pb = new ProcessBuilder("java", "-cp", "bin", "-Xms520m", "-Xmx520m",
+                    "boardgame.Client", "abe_player.StudentPlayer");
+            client2_pb.redirectOutput(ProcessBuilder.Redirect.INHERIT);*/
+            
            
            ProcessBuilder client2_pb = new ProcessBuilder("java", "-cp", "bin", "-Xms520m", "-Xmx520m",
                     "boardgame.Client", "pentago_swap.RandomPentagoPlayer");
@@ -66,16 +71,17 @@ public class Autoplay {
                     Thread.currentThread().interrupt();
                 }
 
-                Process client1 = ((i % 2 == 0) ? client1_pb.start() : client2_pb.start());
-
+               // Process client1 = ((i % 2 == 0) ? client1_pb.start() : client2_pb.start());
+                Process client1 = ( client1_pb.start());
                 try {
                     Thread.sleep(500);
                 } catch (InterruptedException ex) {
                     Thread.currentThread().interrupt();
                 }
 
-                Process client2 = ((i % 2 == 0) ? client2_pb.start() : client1_pb.start());
-
+              //  Process client2 = ((i % 2 == 0 ) ? client2_pb.start() : client1_pb.start());
+                Process client2 = ( client2_pb.start());
+                
                 try {
                     client1.waitFor();
                 } catch (InterruptedException e) {

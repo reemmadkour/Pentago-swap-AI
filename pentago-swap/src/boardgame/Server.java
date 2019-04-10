@@ -51,7 +51,7 @@ public class Server implements Runnable {
     public static final int DEFAULT_TIMEOUT = 2000;
     private static final int DEFAULT_TIMEOUT_CUSHION = 1000;
 
-    public static final int FIRST_MOVE_TIMEOUT = 40000;
+    public static final int FIRST_MOVE_TIMEOUT = 4000;
     private static final int FIRST_MOVE_TIMEOUT_CUSHION = 1000;
 
     protected static final String DEFAULT_BOARDCLASS = "pentago_swap.PentagoBoard";
