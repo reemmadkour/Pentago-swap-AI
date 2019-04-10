@@ -43,14 +43,6 @@ public class Autoplay {
                     "boardgame.Client", "student_player.StudentPlayer");
             client1_pb.redirectOutput(ProcessBuilder.Redirect.INHERIT);
 
-  /*        ProcessBuilder client2_pb = new ProcessBuilder("java", "-cp", "bin", "-Xms520m", "-Xmx520m",
-                    "boardgame.Client", "lucy_player.StudentPlayer");
-            client2_pb.redirectOutput(ProcessBuilder.Redirect.INHERIT);*/
-            
-          
-     /*       ProcessBuilder client2_pb = new ProcessBuilder("java", "-cp", "bin", "-Xms520m", "-Xmx520m",
-                    "boardgame.Client", "abe_player.StudentPlayer");
-            client2_pb.redirectOutput(ProcessBuilder.Redirect.INHERIT);*/
             
            
            ProcessBuilder client2_pb = new ProcessBuilder("java", "-cp", "bin", "-Xms520m", "-Xmx520m",
