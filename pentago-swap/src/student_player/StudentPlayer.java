@@ -140,7 +140,7 @@ public int evalMove(PentagoBoardState boardState, PentagoMove v,int me) {
 			}
 			else {
 				
-				done=done-10;
+				done=done-8;
 				consec=0;
 				
 			}
@@ -158,7 +158,7 @@ public int evalMove(PentagoBoardState boardState, PentagoMove v,int me) {
 			}
 			else {
 				
-				dfour=dfour-10;
+				dfour=dfour-8;
 				consec4=0;
 			}
 	}
@@ -176,7 +176,7 @@ public int evalMove(PentagoBoardState boardState, PentagoMove v,int me) {
 			}
 			else {
 				
-				dtwo=dtwo-10;
+				dtwo=dtwo-8;
 				consec2=0;
 				
 			}
@@ -195,7 +195,7 @@ public int evalMove(PentagoBoardState boardState, PentagoMove v,int me) {
 			}
 			else {
 				
-				dthree=dthree-10;
+				dthree=dthree-8;
 				consec3=0;
 				
 			}
@@ -212,7 +212,7 @@ public int evalMove(PentagoBoardState boardState, PentagoMove v,int me) {
 			}
 			else {
 				
-				dfive=dfive-10;
+				dfive=dfive-8;
 				consec5=0;
 				
 			}
@@ -231,7 +231,7 @@ public int evalMove(PentagoBoardState boardState, PentagoMove v,int me) {
 			}
 			else {
 				
-				dsix=dsix-10;
+				dsix=dsix-8;
 				consec6=0;
 				
 			}
@@ -243,7 +243,33 @@ public int evalMove(PentagoBoardState boardState, PentagoMove v,int me) {
 	return totalscore;
 	
 	
+	/*int xmove=v.getMoveCoord().getX();
+	int ymove=v.getMoveCoord().getY();
+	int score=0;
 	
+	for(int x=0;x<6;x++) {
+		for(int y=0;y<6;y++) {
+			if (boardState.getPieceAt(x, y)!=Piece.EMPTY) {
+				if(boardState.getPieceAt(x, y)==mycolor) {
+					if(x==xmove) {score=score+1;}
+					if(y==ymove) {score=score+1;}
+					if(Math.abs(x-xmove)==Math.abs(y-ymove)) {score=score+1;}
+				}
+				else {
+					
+					if(x==xmove) {score=score-2;}
+					if(y==ymove) {score=score-2;}
+					if(Math.abs(x-xmove)==Math.abs(y-ymove)) {score=score-2;}
+					
+				}
+				
+				
+			}
+				
+			}
+		}
+	
+	return score;*/
 	}
 	
 
@@ -313,20 +339,43 @@ public int evalMove(PentagoBoardState boardState, PentagoMove v,int me) {
         			BestScore=score;}
         	}
         		
+        			//PentagoBoardState newBoard= (PentagoBoardState) boardState.clone();
+                 	
+                //	newBoard.processMove(v);
         			
         			
         			
         		
         //	}
         	return bestab.move;  }
-       
+        /*	else if (boardState.isLegal(c10)) {return c10;}
+        	else if (boardState.isLegal(c11)) {return c11;}
+        	else if (boardState.isLegal(c12)) {return c12;}
+        	
+        	else if (boardState.isLegal(c13)) {return c13;}
+        	else if (boardState.isLegal(c14)) {return c14;}
+        	else if (boardState.isLegal(c15)) {return c15;}
+        	else if (boardState.isLegal(c16)) {return c16;}
+        	else if (boardState.isLegal(c17)) {return c17;}
+        	else if (boardState.isLegal(c18)) {return c18;}
+        	else if (boardState.isLegal(c19)) {return c19;}*/
+        	
+        	
+        	
+        	//else return boardState.getRandomMove();}
         else {
         moveandscore ans= minimax(boardState,me,me,Integer.MIN_VALUE,Integer.MAX_VALUE);
       
         return ans.move;
         }
     }
-      
+      //  Move myMove = boardState.getRandomMove();
+      /*  ArrayList<PentagoMove> legalmoves = boardState.getAllLegalMoves();
+        int BestScore= - (Integer.MAX_VALUE);
+        for(Move v: legalmoves) {
+        	score= minimax
+        	*/
+        	
        
     
     
